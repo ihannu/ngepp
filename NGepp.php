@@ -112,8 +112,9 @@ function COCCAepp_SaveRegistrarLock($params) {
 	$sld = $params["sld"];
 	$tld = $params["tld"];
 	$domain = "$sld.$tld";
+	
+	//Get lock status set by client and lock or unlock domain accordingly.
         $lockenabled=$params["lockenabled"];
-        $lockmsg="Lock Enabled:" . $lockenabled . "Domain:" . $domain;
         
  	if ($lockenabled == "locked") {
  	COCCAepp_LockDomain($domain);
@@ -127,7 +128,7 @@ function COCCAepp_SaveRegistrarLock($params) {
 function COCCAepp_LockDomain($params) {
 
 $domain=$params;
-$lockmsg="Domain:" . $domain;
+
 try {
 		if (!isset($client)) {
 			$client = _COCCAepp_Client();
