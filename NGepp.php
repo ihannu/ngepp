@@ -64,8 +64,7 @@ function COCCAepp_GetRegistrarLock($params) {
 	$tld = $params["tld"];
         $domain=$sld . "." . $tld;
 
-// What is the current domain status?
-# Grab list of current nameservers
+# Grab the Domain Information to check Registrar Locks Set on the Domain
  try {
  $client = _COCCAepp_Client();
         $request = $client->request($xml='<?xml version="1.0" encoding="UTF-8" standalone="no"?>
